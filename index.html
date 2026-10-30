@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,19 +24,16 @@
 
         @layer components {
 
-            /* REUSABLE FOOD CARD */
             .food-card {
-                @apply rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm hover:-translate-y-1 hover:shadow-lg dark:border-stone-700 dark:bg-stone-800;
+                @apply rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-stone-700 dark:bg-stone-800;
             }
 
-            /* REUSABLE BUTTON */
             .store-button {
-                @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-orange-700 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:bg-orange-500 dark:hover:bg-orange-400;
+                @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-semibold text-white shadow-sm transition-colors duration-200 hover:bg-orange-700 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:bg-orange-500 dark:hover:bg-orange-400;
             }
 
-            /* REUSABLE NAVIGATION LINK */
             .nav-link {
-                @apply rounded-lg px-2 py-1 font-semibold text-stone-700 hover:text-accent dark:text-stone-200 dark:hover:text-orange-400;
+                @apply rounded-lg px-2 py-1 font-semibold text-stone-700 transition-colors duration-200 hover:text-accent dark:text-stone-200 dark:hover:text-orange-400;
             }
         }
     </style>
@@ -52,7 +49,7 @@
     ></div>
 
     <!-- HEADER -->
-    <header class="sticky top-0 z-50 border-b border-orange-100 bg-paper/95 backdrop-blur dark:border-stone-800 dark:bg-stone-900/95">
+    <header class="sticky top-0 z-50 border-b border-orange-100 bg-paper/95 shadow-sm backdrop-blur dark:border-stone-800 dark:bg-stone-900/95">
 
         <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4">
 
@@ -72,7 +69,7 @@
                 id="darkModeToggle"
                 type="button"
                 aria-pressed="false"
-                class="rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold hover:bg-orange-100 dark:border-stone-600 dark:text-white dark:hover:bg-stone-800"
+                class="rounded-full border border-orange-300 bg-white px-4 py-2 text-sm font-semibold transition-colors hover:bg-orange-100 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white dark:hover:bg-stone-700"
             >
                 🌙 Dark
             </button>
@@ -101,7 +98,7 @@
         <!-- ================================== -->
         <section
             id="home"
-            class="bg-cream px-5 py-20 dark:bg-stone-950 sm:py-28"
+            class="bg-gradient-to-br from-cream via-orange-50 to-orange-100 px-5 py-20 dark:from-stone-950 dark:via-stone-900 dark:to-stone-950 sm:py-28"
         >
             <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
 
@@ -134,7 +131,7 @@
                         <button
                             id="replayBtn"
                             type="button"
-                            class="rounded-full border-2 border-orange-500 px-6 py-3 font-semibold text-orange-700 hover:bg-orange-100 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:border-orange-400 dark:text-orange-300 dark:hover:bg-stone-800"
+                            class="rounded-full border-2 border-orange-500 bg-white/70 px-6 py-3 font-semibold text-orange-700 transition-colors hover:bg-orange-100 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:border-orange-400 dark:bg-stone-900 dark:text-orange-300 dark:hover:bg-stone-800"
                         >
                             ↻ Replay Intro
                         </button>
@@ -142,7 +139,7 @@
                 </div>
 
                 <!-- HERO PANEL -->
-                <div class="hero-panel rounded-3xl bg-orange-100 p-8 text-center dark:bg-stone-800 sm:p-12">
+                <div class="hero-panel rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-100 to-white p-8 text-center shadow-xl dark:border-stone-700 dark:from-stone-800 dark:to-stone-900 sm:p-12">
                     <div class="mb-4 text-7xl" aria-hidden="true">
                         🍛
                     </div>
@@ -169,7 +166,6 @@
             <div class="mx-auto max-w-4xl text-center">
                 <p class="mb-3 font-bold uppercase tracking-widest text-accent">
                     Our Story
-
                 </p>
 
                 <h2 class="mb-6 text-3xl font-black sm:text-4xl">
@@ -193,12 +189,12 @@
             class="reveal bg-cream px-5 py-16 dark:bg-stone-950 sm:py-20"
         >
             <div class="mx-auto max-w-6xl">
+
                 <!-- SECTION TITLE -->
                 <div class="mb-10 text-center">
 
                     <p class="mb-3 font-bold uppercase tracking-widest text-accent">
                         Customer Favorites
-
                     </p>
 
                     <h2 class="text-3xl font-black sm:text-4xl">
@@ -288,6 +284,7 @@
                             ₱85
                         </p>
                     </article>
+
                 </div>
             </div>
         </section>
@@ -300,6 +297,7 @@
             class="reveal bg-paper px-5 py-16 dark:bg-stone-900 sm:py-20"
         >
             <div class="mx-auto max-w-6xl">
+
                 <!-- SECTION TITLE -->
                 <div class="mb-10 text-center">
                     <p class="mb-3 font-bold uppercase tracking-widest text-accent">
@@ -313,6 +311,7 @@
 
                 <!-- SERVICE CARDS -->
                 <div class="grid gap-6 md:grid-cols-3">
+
                     <!-- DAILY MEALS -->
                     <article class="food-card">
                         <div class="mb-3 text-4xl" aria-hidden="true">
@@ -357,6 +356,7 @@
                             Food service for celebrations, parties, and special events.
                         </p>
                     </article>
+
                 </div>
             </div>
         </section>
@@ -369,6 +369,7 @@
             class="reveal bg-cream px-5 py-16 dark:bg-stone-950 sm:py-20"
         >
             <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
+
                 <!-- CONTACT INFORMATION -->
                 <div>
                     <p class="mb-3 font-bold uppercase tracking-widest text-accent">
@@ -408,8 +409,9 @@
                 <!-- CONTACT FORM -->
                 <form
                     id="contactForm"
-                    class="rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900 sm:p-8"
+                    class="rounded-2xl border border-orange-200 bg-paper p-6 shadow-lg dark:border-stone-700 dark:bg-stone-900 sm:p-8"
                 >
+
                     <!-- NAME -->
                     <div class="mb-5">
                         <label
@@ -484,6 +486,7 @@
                         role="status"
                         aria-live="polite"
                     ></p>
+
                 </form>
             </div>
         </section>
@@ -492,33 +495,27 @@
     <!-- ================================== -->
     <!-- FOOTER -->
     <!-- ================================== -->
-
     <footer class="bg-stone-900 px-5 py-8 text-center text-white dark:bg-black">
 
         <p class="font-semibold">
-
             &copy; 2026 Vickson's Store. All rights reserved.
-
         </p>
 
         <p class="mt-2 text-sm text-stone-300">
-
             Eatery & Catering Services
-
         </p>
+
         <a
             href="#home"
             class="mt-4 inline-block text-sm font-semibold text-orange-400 hover:text-orange-300"
         >
             Back to Top ↑
-
         </a>
     </footer>
-    
+
     <!-- ================================== -->
     <!-- GSAP LIBRARIES -->
     <!-- ================================== -->
-
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
