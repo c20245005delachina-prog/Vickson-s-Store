@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="Vickson's Store offers delicious and affordable Filipino meals and catering services.">
+
     <title>Vickson's Store | Eatery & Catering</title>
 
+    <!-- TAILWIND CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- TAILWIND CUSTOMIZATION -->
     <style type="text/tailwindcss">
         @custom-variant dark (&:where(.dark, .dark *));
 
@@ -19,12 +23,20 @@
         }
 
         @layer components {
+
+            /* REUSABLE FOOD CARD */
             .food-card {
-                @apply rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-stone-700 dark:bg-stone-800;
+                @apply rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm hover:-translate-y-1 hover:shadow-lg dark:border-stone-700 dark:bg-stone-800;
             }
 
+            /* REUSABLE BUTTON */
             .store-button {
-                @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-semibold text-white transition hover:bg-orange-700 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:bg-orange-500 dark:hover:bg-orange-400;
+                @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 font-semibold text-white hover:bg-orange-700 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:bg-orange-500 dark:hover:bg-orange-400;
+            }
+
+            /* REUSABLE NAVIGATION LINK */
+            .nav-link {
+                @apply rounded-lg px-2 py-1 font-semibold text-stone-700 hover:text-accent dark:text-stone-200 dark:hover:text-orange-400;
             }
         }
     </style>
@@ -32,81 +44,140 @@
 
 <body class="bg-cream text-ink dark:bg-stone-950 dark:text-stone-100">
 
+    <!-- SCROLL PROGRESS BAR -->
+    <div
+        id="scrollProgress"
+        class="fixed left-0 top-0 z-[100] h-1 w-full origin-left bg-accent"
+        aria-hidden="true"
+    ></div>
+
     <!-- HEADER -->
     <header class="sticky top-0 z-50 border-b border-orange-100 bg-paper/95 backdrop-blur dark:border-stone-800 dark:bg-stone-900/95">
+
         <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4">
 
+            <!-- BRAND -->
             <a href="#home" class="text-xl font-extrabold text-accent sm:text-2xl">
+
                 Vickson's Store
+
                 <span class="block text-xs font-medium text-stone-600 dark:text-stone-300">
                     Eatery & Catering Services
                 </span>
+
             </a>
 
+            <!-- DARK MODE BUTTON -->
             <button
                 id="darkModeToggle"
                 type="button"
                 aria-pressed="false"
-                class="rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold hover:bg-orange-100 dark:border-stone-600 dark:hover:bg-stone-800"
+                class="rounded-full border border-orange-300 px-4 py-2 text-sm font-semibold hover:bg-orange-100 dark:border-stone-600 dark:text-white dark:hover:bg-stone-800"
             >
                 🌙 Dark
             </button>
 
-            <nav aria-label="Main navigation" class="flex w-full flex-wrap gap-x-5 gap-y-3 text-sm font-semibold sm:w-auto sm:text-base">
-                <a class="hover:text-accent" href="#home">Home</a>
-                <a class="hover:text-accent" href="#about">About</a>
-                <a class="hover:text-accent" href="#menu">Menu</a>
-                <a class="hover:text-accent" href="#services">Services</a>
-                <a class="hover:text-accent" href="#contact">Contact</a>
-            </nav>
+            <!-- NAVIGATION -->
+            <nav
+                aria-label="Main navigation"
+                class="flex w-full flex-wrap gap-x-3 gap-y-3 text-sm sm:w-auto sm:gap-x-5 sm:text-base"
+            >
+                <a class="nav-link" href="#home">Home</a>
 
+                <a class="nav-link" href="#about">About</a>
+
+                <a class="nav-link" href="#menu">Menu</a>
+
+                <a class="nav-link" href="#services">Services</a>
+
+                <a class="nav-link" href="#contact">Contact</a>
+            </nav>
         </div>
     </header>
 
     <main>
-
-        <!-- HERO -->
-        <section id="home" class="px-5 py-20 sm:py-28">
+        <!-- ================================== -->
+        <!-- HERO SECTION -->
+        <!-- ================================== -->
+        <section
+            id="home"
+            class="bg-cream px-5 py-20 dark:bg-stone-950 sm:py-28"
+        >
             <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
 
+                <!-- HERO CONTENT -->
                 <div>
-                    <p class="mb-4 font-bold uppercase tracking-widest text-accent">
+                    <p class="hero-eyebrow mb-4 font-bold uppercase tracking-widest text-accent">
+
                         Lutong Pinoy, Sarap na Sulit!
                     </p>
 
-                    <h1 class="mb-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+                    <h1 class="hero-title mb-6 text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
                         Welcome to
-                        <span class="text-accent">Vickson's Store!</span>
+                        <span class="text-accent">
+                            Vickson's Store!
+                        </span>
                     </h1>
 
-                    <p class="mb-8 max-w-xl text-lg leading-8 text-stone-700 dark:text-stone-300">
+                    <p class="hero-copy mb-8 max-w-xl text-lg leading-8 text-stone-700 dark:text-stone-300">
+
                         Delicious Filipino food for everyone. Enjoy affordable
                         home-style meals and catering for your special occasions.
                     </p>
 
-                    <a href="#menu" class="store-button">
-                        Explore Our Menu ↓
-                    </a>
+                    <!-- HERO BUTTONS -->
+                    <div class="hero-actions flex flex-wrap gap-3">
+                        <a href="#menu" class="store-button">
+                            Explore Our Menu ↓
+                        </a>
+
+                        <button
+                            id="replayBtn"
+                            type="button"
+                            class="rounded-full border-2 border-orange-500 px-6 py-3 font-semibold text-orange-700 hover:bg-orange-100 focus:outline-2 focus:outline-offset-2 focus:outline-accent dark:border-orange-400 dark:text-orange-300 dark:hover:bg-stone-800"
+                        >
+                            ↻ Replay Intro
+                        </button>
+                    </div>
                 </div>
 
-                <div class="rounded-3xl bg-orange-100 p-8 text-center dark:bg-stone-800 sm:p-12">
-                    <div class="mb-4 text-7xl" aria-hidden="true">🍛</div>
-                    <h2 class="mb-3 text-2xl font-extrabold">Fresh. Delicious. Affordable.</h2>
+                <!-- HERO PANEL -->
+                <div class="hero-panel rounded-3xl bg-orange-100 p-8 text-center dark:bg-stone-800 sm:p-12">
+                    <div class="mb-4 text-7xl" aria-hidden="true">
+                        🍛
+                    </div>
+
+                    <h2 class="mb-3 text-2xl font-extrabold">
+                        Fresh. Delicious. Affordable.
+                    </h2>
+
                     <p class="text-stone-700 dark:text-stone-300">
+
                         Your neighborhood stop for satisfying Filipino meals.
                     </p>
                 </div>
-
             </div>
         </section>
 
-        <!-- ABOUT -->
-        <section id="about" class="bg-paper px-5 py-16 dark:bg-stone-900">
+        <!-- ================================== -->
+        <!-- ABOUT SECTION -->
+        <!-- ================================== -->
+        <section
+            id="about"
+            class="reveal bg-paper px-5 py-16 dark:bg-stone-900"
+        >
             <div class="mx-auto max-w-4xl text-center">
-                <p class="mb-3 font-bold uppercase tracking-widest text-accent">Our Story</p>
-                <h2 class="mb-6 text-3xl font-black sm:text-4xl">About Us</h2>
+                <p class="mb-3 font-bold uppercase tracking-widest text-accent">
+                    Our Story
+
+                </p>
+
+                <h2 class="mb-6 text-3xl font-black sm:text-4xl">
+                    About Us
+                </h2>
 
                 <p class="text-lg leading-8 text-stone-700 dark:text-stone-300">
+
                     Vickson's Store serves delicious, affordable Filipino meals
                     and offers catering services for different occasions. We aim
                     to bring satisfying food and a welcoming experience to every customer.
@@ -114,87 +185,174 @@
             </div>
         </section>
 
-        <!-- MENU -->
-        <section id="menu" class="px-5 py-16 sm:py-20">
+        <!-- ================================== -->
+        <!-- MENU SECTION -->
+        <!-- ================================== -->
+        <section
+            id="menu"
+            class="reveal bg-cream px-5 py-16 dark:bg-stone-950 sm:py-20"
+        >
             <div class="mx-auto max-w-6xl">
+                <!-- SECTION TITLE -->
                 <div class="mb-10 text-center">
-                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">Customer Favorites</p>
-                    <h2 class="text-3xl font-black sm:text-4xl">Our Menu</h2>
+
+                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">
+                        Customer Favorites
+
+                    </p>
+
+                    <h2 class="text-3xl font-black sm:text-4xl">
+                        Our Menu
+                    </h2>
+
                     <p class="mt-3 text-stone-700 dark:text-stone-300">
                         Enjoy classic Filipino favorites at affordable prices.
                     </p>
                 </div>
 
+                <!-- FOOD CARDS -->
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 
+                    <!-- CHICKEN ADOBO -->
                     <article class="food-card">
-                        <div class="mb-4 text-5xl" aria-hidden="true">🍗</div>
-                        <h3 class="mb-2 text-xl font-bold">Chicken Adobo</h3>
+                        <div class="mb-4 text-5xl" aria-hidden="true">
+                            🍗
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Chicken Adobo
+                        </h3>
+
                         <p class="mb-5 text-sm text-stone-600 dark:text-stone-300">
                             A Filipino classic with savory, flavorful sauce.
                         </p>
-                        <p class="text-xl font-extrabold text-accent">₱80</p>
+
+                        <p class="text-xl font-extrabold text-accent">
+                            ₱80
+                        </p>
                     </article>
 
+                    <!-- SINIGANG -->
                     <article class="food-card">
-                        <div class="mb-4 text-5xl" aria-hidden="true">🍲</div>
-                        <h3 class="mb-2 text-xl font-bold">Sinigang</h3>
+                        <div class="mb-4 text-5xl" aria-hidden="true">
+                            🍲
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Sinigang
+                        </h3>
+
                         <p class="mb-5 text-sm text-stone-600 dark:text-stone-300">
                             A comforting, sour Filipino soup.
                         </p>
-                        <p class="text-xl font-extrabold text-accent">₱100</p>
+
+                        <p class="text-xl font-extrabold text-accent">
+                            ₱100
+                        </p>
                     </article>
 
+                    <!-- PORK MENUDO -->
                     <article class="food-card">
-                        <div class="mb-4 text-5xl" aria-hidden="true">🥘</div>
-                        <h3 class="mb-2 text-xl font-bold">Pork Menudo</h3>
+                        <div class="mb-4 text-5xl" aria-hidden="true">
+                            🥘
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Pork Menudo
+                        </h3>
+
                         <p class="mb-5 text-sm text-stone-600 dark:text-stone-300">
                             A hearty Filipino tomato-based pork dish.
                         </p>
-                        <p class="text-xl font-extrabold text-accent">₱90</p>
+
+                        <p class="text-xl font-extrabold text-accent">
+                            ₱90
+                        </p>
                     </article>
 
+                    <!-- FRIED CHICKEN -->
                     <article class="food-card">
-                        <div class="mb-4 text-5xl" aria-hidden="true">🍗</div>
-                        <h3 class="mb-2 text-xl font-bold">Fried Chicken</h3>
+                        <div class="mb-4 text-5xl" aria-hidden="true">
+                            🍗
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Fried Chicken
+                        </h3>
+
                         <p class="mb-5 text-sm text-stone-600 dark:text-stone-300">
                             Crispy chicken for a satisfying meal.
                         </p>
-                        <p class="text-xl font-extrabold text-accent">₱85</p>
-                    </article>
 
+                        <p class="text-xl font-extrabold text-accent">
+                            ₱85
+                        </p>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES -->
-        <section id="services" class="bg-paper px-5 py-16 dark:bg-stone-900 sm:py-20">
+        <!-- ================================== -->
+        <!-- SERVICES SECTION -->
+        <!-- ================================== -->
+        <section
+            id="services"
+            class="reveal bg-paper px-5 py-16 dark:bg-stone-900 sm:py-20"
+        >
             <div class="mx-auto max-w-6xl">
+                <!-- SECTION TITLE -->
                 <div class="mb-10 text-center">
-                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">How We Serve You</p>
-                    <h2 class="text-3xl font-black sm:text-4xl">Our Services</h2>
+                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">
+                        How We Serve You
+                    </p>
+
+                    <h2 class="text-3xl font-black sm:text-4xl">
+                        Our Services
+                    </h2>
                 </div>
 
+                <!-- SERVICE CARDS -->
                 <div class="grid gap-6 md:grid-cols-3">
+                    <!-- DAILY MEALS -->
                     <article class="food-card">
-                        <div class="mb-3 text-4xl" aria-hidden="true">🍽️</div>
-                        <h3 class="mb-2 text-xl font-bold">Daily Meals</h3>
+                        <div class="mb-3 text-4xl" aria-hidden="true">
+                            🍽️
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Daily Meals
+                        </h3>
+
                         <p class="text-stone-700 dark:text-stone-300">
                             Affordable Filipino meals for everyday dining.
                         </p>
                     </article>
 
+                    <!-- FOOD ORDERS -->
                     <article class="food-card">
-                        <div class="mb-3 text-4xl" aria-hidden="true">🛍️</div>
-                        <h3 class="mb-2 text-xl font-bold">Food Orders</h3>
+                        <div class="mb-3 text-4xl" aria-hidden="true">
+                            🛍️
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Food Orders
+                        </h3>
+
                         <p class="text-stone-700 dark:text-stone-300">
                             Place an inquiry for food orders for your family or group.
                         </p>
                     </article>
 
+                    <!-- CATERING -->
                     <article class="food-card">
-                        <div class="mb-3 text-4xl" aria-hidden="true">🎉</div>
-                        <h3 class="mb-2 text-xl font-bold">Catering</h3>
+                        <div class="mb-3 text-4xl" aria-hidden="true">
+                            🎉
+                        </div>
+
+                        <h3 class="mb-2 text-xl font-bold">
+                            Catering
+                        </h3>
+
                         <p class="text-stone-700 dark:text-stone-300">
                             Food service for celebrations, parties, and special events.
                         </p>
@@ -203,13 +361,23 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="px-5 py-16 sm:py-20">
+        <!-- ================================== -->
+        <!-- CONTACT SECTION -->
+        <!-- ================================== -->
+        <section
+            id="contact"
+            class="reveal bg-cream px-5 py-16 dark:bg-stone-950 sm:py-20"
+        >
             <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
-
+                <!-- CONTACT INFORMATION -->
                 <div>
-                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">Get in Touch</p>
-                    <h2 class="mb-5 text-3xl font-black sm:text-4xl">Contact Us</h2>
+                    <p class="mb-3 font-bold uppercase tracking-widest text-accent">
+                        Get in Touch
+                    </p>
+
+                    <h2 class="mb-5 text-3xl font-black sm:text-4xl">
+                        Contact Us
+                    </h2>
 
                     <p class="mb-6 text-stone-700 dark:text-stone-300">
                         Have a question about our meals or catering services?
@@ -218,70 +386,145 @@
 
                     <p class="mb-3">
                         <strong>Email:</strong>
-                        <a class="text-accent underline" href="mailto:vicksonsstore@example.com">
+                        <a
+                            class="text-accent underline"
+                            href="mailto:vicksonsstore@example.com"
+                        >
                             vicksonsstore@example.com
                         </a>
                     </p>
 
+                    <p class="mb-3">
+                        <strong>Phone:</strong>
+                        0912-345-6789
+                    </p>
+
                     <p>
-                        <strong>Phone:</strong> 0912-345-6789
+                        <strong>Business:</strong>
+                        Eatery & Catering Services
                     </p>
                 </div>
 
-                <form id="contactForm" class="rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900 sm:p-8">
+                <!-- CONTACT FORM -->
+                <form
+                    id="contactForm"
+                    class="rounded-2xl border border-orange-200 bg-paper p-6 shadow-sm dark:border-stone-700 dark:bg-stone-900 sm:p-8"
+                >
+                    <!-- NAME -->
                     <div class="mb-5">
-                        <label for="name" class="mb-2 block font-semibold">Your Name</label>
+                        <label
+                            for="name"
+                            class="mb-2 block font-semibold"
+                        >
+                            Your Name
+                        </label>
+
                         <input
                             id="name"
                             name="name"
                             type="text"
+                            placeholder="Enter your name"
                             autocomplete="name"
                             required
-                            class="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            class="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white dark:placeholder:text-stone-400"
                         >
                     </div>
 
+                    <!-- EMAIL -->
                     <div class="mb-5">
-                        <label for="email" class="mb-2 block font-semibold">Email Address</label>
+                        <label
+                            for="email"
+                            class="mb-2 block font-semibold"
+                        >
+                            Email Address
+                        </label>
+
                         <input
                             id="email"
                             name="email"
                             type="email"
+                            placeholder="Enter your email"
                             autocomplete="email"
                             required
-                            class="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            class="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white dark:placeholder:text-stone-400"
                         >
                     </div>
 
+                    <!-- MESSAGE -->
                     <div class="mb-5">
-                        <label for="message" class="mb-2 block font-semibold">Your Message</label>
+                        <label
+                            for="message"
+                            class="mb-2 block font-semibold"
+                        >
+                            Your Message
+                        </label>
+
                         <textarea
                             id="message"
                             name="message"
                             rows="4"
+                            placeholder="Write your message here..."
                             required
-                            class="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white"
+                            class="w-full resize-y rounded-lg border border-stone-300 bg-white px-4 py-3 text-stone-900 placeholder:text-stone-500 focus:outline-2 focus:outline-accent dark:border-stone-600 dark:bg-stone-800 dark:text-white dark:placeholder:text-stone-400"
                         ></textarea>
                     </div>
 
-                    <button type="submit" class="store-button w-full">
-                        Send Message
+                    <!-- SUBMIT BUTTON -->
+                    <button
+                        type="submit"
+                        class="store-button w-full"
+                    >
+                        Send Message →
                     </button>
 
-                    <p id="formMessage" class="mt-4 hidden text-sm font-semibold text-green-700 dark:text-green-400" role="status" aria-live="polite"></p>
+                    <!-- FORM CONFIRMATION -->
+                    <p
+                        id="formMessage"
+                        class="mt-4 hidden text-sm font-semibold text-green-700 dark:text-green-400"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
                 </form>
-
             </div>
         </section>
-
     </main>
 
+    <!-- ================================== -->
     <!-- FOOTER -->
-    <footer class="bg-stone-900 px-5 py-8 text-center text-white">
-        <p>&copy; 2026 Vickson's Store. All rights reserved.</p>
-        <p class="mt-2 text-sm text-stone-300">Eatery & Catering Services</p>
-    </footer>
+    <!-- ================================== -->
 
+    <footer class="bg-stone-900 px-5 py-8 text-center text-white dark:bg-black">
+
+        <p class="font-semibold">
+
+            &copy; 2026 Vickson's Store. All rights reserved.
+
+        </p>
+
+        <p class="mt-2 text-sm text-stone-300">
+
+            Eatery & Catering Services
+
+        </p>
+        <a
+            href="#home"
+            class="mt-4 inline-block text-sm font-semibold text-orange-400 hover:text-orange-300"
+        >
+            Back to Top ↑
+
+        </a>
+    </footer>
+    
+    <!-- ================================== -->
+    <!-- GSAP LIBRARIES -->
+    <!-- ================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <!-- YOUR JAVASCRIPT -->
     <script src="script.js"></script>
+
 </body>
 </html>

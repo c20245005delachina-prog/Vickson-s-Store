@@ -38,10 +38,15 @@ Tool used: [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecke
 - [x] Menu cards with food descriptions and prices
 - [x] Smooth scrolling to the menu
 - [x] Contact form with required fields (demo only)
-- [ ] Page-load intro animation (GSAP timeline)
-- [ ] Scroll reveals on every section below the hero (ScrollTrigger)
-- [ ] Scroll progress bar (scrub)
-- [ ] Reduced-motion support
+- [x] Page-load intro animation (GSAP timeline)
+- [x] Staggered hero entrance animations
+- [x] Replay intro button using GSAP
+- [x] Scroll reveals on every section below the hero (ScrollTrigger)
+- [x] Scroll progress bar with scrub
+- [x] Reduced-motion support
+- [x] Responsive navigation
+- [x] Back-to-top link
+
 
 ## Built With
 
